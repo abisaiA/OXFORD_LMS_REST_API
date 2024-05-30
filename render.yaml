@@ -10,7 +10,8 @@ services:
     name: OXFORD_VTC_API
     runtime: python
     buildCommand: "./build.sh"
-    startCommand: "python -m gunicorn OXFORD_VTC_API.asgi:application -k uvicorn.workers.UvicornWorker"    envVars:
+    startCommand: "python -m gunicorn OXFORD_VTC_API.asgi:application -k uvicorn.workers.UvicornWorker"
+    envVars:
       - key: DATABASE_URL
         fromDatabase:
           name: OXFORD_VTC_API_db
