@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'Oxford_VTC_API.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://postgres:postgres@localhost:5432/mysite',
+        default='postgresql://postgres:postgres@localhost:5432/oxford_vtc_api_db',
         conn_max_age=600
     )
 }
