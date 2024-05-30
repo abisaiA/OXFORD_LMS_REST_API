@@ -1,20 +1,20 @@
 databases:
-  - name: OXFORD_VTC_API_db
+  - name: oxford_vtc_api_db
     plan: free
-    databaseName: OXFORD_VTC_API
-    user: OXFORD_VTC_API
+    databaseName: oxford_vtc_api_db
+    user: oxford_vtc_api_user
 
 services:
   - type: web
     plan: free
-    name: OXFORD_VTC_API
+    name: oxford_vtc_api
     runtime: python
     buildCommand: "./build.sh"
     startCommand: "python -m gunicorn OXFORD_VTC_API.asgi:application -k uvicorn.workers.UvicornWorker"
     envVars: 
       - key: DATABASE_URL
         fromDatabase: 
-          name: OXFORD_VTC_API_db
+          name: oxford_vtc_api_db
           property: connectionString
       - key: SECRET_KEY
         generateValue: true
