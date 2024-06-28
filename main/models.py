@@ -3,14 +3,14 @@ from django.db import models
 # Create your models here.
 # Teacher Model
 class Teacher(models.Model):
-    first_name=models.CharField(max_length=100, default="none")
-    second_name=models.CharField(max_length=100, default="none")
+    first_name=models.CharField(max_length=100)
+    second_name=models.CharField(max_length=100)
     email=models.CharField(max_length=100)
     password=models.CharField(max_length=100)
     qualifications=models.CharField(max_length=200)
     mobile_no=models.CharField(max_length=20)
     skills=models.TextField()
-    address=models.CharField(max_length=100, default="none")
+    address=models.CharField(max_length=100)
 
     class Meta:
         verbose_name_plural="1. Teachers"
