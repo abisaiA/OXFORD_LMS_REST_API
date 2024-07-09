@@ -6,7 +6,7 @@ from rest_framework import permissions
 from django.views.decorators.csrf import csrf_exempt
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import JsonResponse, HttpResponse
-from .serializers import TeacherSerializer
+from .serializers import CategorySerializer, CourseSerializer, TeacherSerializer
 from . import models
 from rest_framework.response import Response
 # Create your views here.
@@ -43,3 +43,15 @@ def teacher_login(request):
             return JsonResponse({'success': False, 'error': 'Server error'}, status=500)
     else:
         return JsonResponse({'success': False, 'error': 'Unsupported method'}, status=405)
+    
+        
+class CategoryList(generics.ListCreateAPIView):
+    queryset = models.CourseCategory.objects.all()
+    serializer_class = CategorySerializer
+    # permission_classes=[permissions.IsAuthenticated]
+
+class CourseList(generics.ListCreateAPIView):
+    queryset = models.Course.objects.all()
+    serializer_class = CourseSerializer
+
+    # permission_classes=[permissions.IsAuthenticated]
