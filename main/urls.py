@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+# from .views import add_course
 
 urlpatterns = [
     #Teacher
@@ -11,7 +12,12 @@ urlpatterns = [
     path('category/', views.CategoryList.as_view()),
     #course
     path('course/', views.CourseList.as_view()),
+    #chapter
+    path('chapter/', views.ChapterList.as_view()),
 
+    #path('course/', add_course, name='add_course'),
+    #TeacherCourses
+    path('teacher-courses/<int:teacher_id>', views.TeacherCourseList.as_view()),
 
 
 ] 
