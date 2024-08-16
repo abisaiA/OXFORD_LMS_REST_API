@@ -69,6 +69,11 @@ class TeacherCourseList(generics.ListAPIView):
 
     #permission_classes=[permissions.IsAuthenticated]
 
+class TeacherCourseDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = models.Course.objects.all()
+
+    serializer_class = CourseSerializer
+
 # @api_view(['POST'])
 # def add_course(request):
 #     if request.method == 'POST':
